@@ -28,7 +28,7 @@ jobs:
         npm run build
     - uses: actions/upload-artifact@main
       with:
-        needs: build
+        name: webpack artifacts
 	      path: public/	
 
   test:
@@ -42,10 +42,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version}}
-      uses: actions/setup-node@v3
+    - uses: actions/download-artifact@main
       with:
-        node-version: ${{ matrix.node-version }}
+        name: webpack artifacts
+        path: public
     - name: npm install, and test
       run: |
         npm install
