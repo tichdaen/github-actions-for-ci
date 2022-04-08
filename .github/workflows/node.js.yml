@@ -28,8 +28,8 @@ jobs:
         npm run build
     - uses: actions/upload-artifact@main
       with:
-    needs: build
-	path: public/	
+        needs: build
+	      path: public/	
 
   test:
 
